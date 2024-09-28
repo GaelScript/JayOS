@@ -5,6 +5,7 @@
 #include <unistd.h> //Added for sleep() function to work
 #include <stdbool.h> //Added for boolean values
 #include <string.h> //Added for strcmp() function to work
+#include "process1.h"
 
 const char username[] = "username";
 const char password[] = "password";
@@ -15,7 +16,7 @@ bool login(){
     char passwordInput[20];
 
     while (true){
-        printf("Login:\n");
+        printf("\nLogin:\n");
 
         //Get input from user
         printf("Enter your username:\n");
@@ -26,7 +27,7 @@ bool login(){
 
         //Check if login information is correct
         if (strcmp(usernameInput, username) == 0 && strcmp(passwordInput, password) == 0){
-            printf("Login successful!\n");
+            printf("\nLogin successful!\n");
             return true;
         } else {
             printf("Wrong username or password. Please try again.\n");
@@ -67,6 +68,7 @@ int BIOS_Interface(){
             printf("Booting into JS-DOS...\n");
             // Add code to boot into JS-DOS
             login();
+            inputOutputProcess(); //Process starts right after login
             break;
         case 3:
             printf("Shutting down...\n");
