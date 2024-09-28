@@ -1,8 +1,38 @@
 #ifndef bios_h
 #define bios_h
 
-#include <stdio.h>
-#include <unistd.h>
+#include <stdio.h> 
+#include <unistd.h> //Added for sleep() function to work
+#include <stdbool.h> //Added for boolean values
+#include <string.h> //Added for strcmp() function to work
+
+const char username[] = "username";
+const char password[] = "password";
+
+//Function for login authentication
+bool login(){
+    char usernameInput[20];
+    char passwordInput[20];
+
+    while (true){
+        printf("Login:\n");
+
+        //Get input from user
+        printf("Enter your username:\n");
+        scanf("%s", usernameInput);
+
+        printf("Enter your password:\n");
+        scanf("%s", passwordInput);
+
+        //Check if login information is correct
+        if (strcmp(usernameInput, username) == 0 && strcmp(passwordInput, password) == 0){
+            printf("Login successful!\n");
+            return true;
+        } else {
+            printf("Wrong username or password. Please try again.\n");
+        }
+    }
+}
 
 int BIOS_Interface(){
     printf("Welcome to JayOS!\n");
@@ -31,10 +61,12 @@ int BIOS_Interface(){
         case 1:
             printf("Booting into JayNIX...\n");
             // Add code to boot into JayNIX
+            login();
             break;
         case 2:
             printf("Booting into JS-DOS...\n");
             // Add code to boot into JS-DOS
+            login();
             break;
         case 3:
             printf("Shutting down...\n");
