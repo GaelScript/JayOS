@@ -12,7 +12,7 @@ struct ProcessControlBlock{
 //Process simulation: I/O
 void inputOutputProcess(){
     struct ProcessControlBlock pcb;
-    pcb.processID = 1;
+    pcb.processID = 2;
     pcb.memoryAllocated = 120;
 
     //First, we create process and allocate memory for it
@@ -38,6 +38,10 @@ void inputOutputProcess(){
 
     printf("Please enter a number:\n");
     scanf("%d", &number);
+
+    // Consumes the leftover newline character
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
 
     printf("%d squared is equal to %d.\n", number, number * number);
 

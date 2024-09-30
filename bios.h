@@ -22,8 +22,15 @@ bool login(){
         printf("Enter your username:\n");
         scanf("%s", usernameInput);
 
+        // Clear the input buffer
+        int c;
+        while ((c = getchar()) != '\n' && c != EOF);
+        
         printf("Enter your password:\n");
         scanf("%s", passwordInput);
+
+        int d;
+        while ((d = getchar()) != '\n' && d != EOF);
 
         //Check if login information is correct
         if (strcmp(usernameInput, username) == 0 && strcmp(passwordInput, password) == 0){
@@ -57,6 +64,10 @@ int BIOS_Interface(){
     printf("Enter your choice: ");
     fflush(stdout);
     scanf("%d", &choice);
+
+    // Consumes the leftover newline character
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
 
     switch (choice) {
         case 1:

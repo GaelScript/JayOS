@@ -2,6 +2,8 @@
 #include "JayNIX.h"
 #include "JS-DOS.h"
 
+//USERNAME IS "username" AND PASSWORD IS "password"
+
 int main(){
     const int OS_CHOICE = BIOS_Interface();
     printf("OS_CHOICE: %d\n", OS_CHOICE);
