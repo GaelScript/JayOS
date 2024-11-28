@@ -14,11 +14,8 @@ int main(){
             JayNIX_Interface(1);
             break;
         case 2:
-            JS_DOS_Interface();
             break;
         case 3:
-            break;
-        case 4:
             JayNIX_Interface(2);
             break;
         default:
