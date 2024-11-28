@@ -5,7 +5,7 @@
 //USERNAME IS "username" AND PASSWORD IS "password"
 
 int main(){
-    srand(time(NULL));
+    srand(static_cast<unsigned int>(time(NULL)));
     const int OS_CHOICE = BIOS_Interface();
     printf("OS_CHOICE: %d\n", OS_CHOICE);
 

@@ -5,11 +5,13 @@
 #include <stdlib.h>
 #include "process1.h"
 
-void shell(int schedulerChoice) {
+void shell(int schedulerChoice) { //Default scheduler is SJF
     if (schedulerChoice == 1) {
+        std::cout<< "Initiating background processes.\n";
         SJFProcesses();
     }
     else if (schedulerChoice == 2) {
+        std::cout << "Initiating background processes.\n";
         FCFSProcesses();
     }
     while (1) {
