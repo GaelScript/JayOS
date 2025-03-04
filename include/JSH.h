@@ -5,11 +5,15 @@
 #include <stdlib.h>
 #include "process1.h"
 
-
-struct ProcessControlBlock ShellPCB = {1, 64};
-
-
-void shell() {
+void shell(int schedulerChoice) { //Default scheduler is SJF
+    if (schedulerChoice == 1) {
+        std::cout<< "Initiating background processes.\n";
+        SJFProcesses();
+    }
+    else if (schedulerChoice == 2) {
+        std::cout << "Initiating background processes.\n";
+        FCFSProcesses();
+    }
     while (1) {
         printf("JayOS> ");
         char command[50];
@@ -21,7 +25,7 @@ void shell() {
 
         if (strcmp(command, "exit") == 0) {
             printf("Shutting down JaySH...\n");
-            sleep(1);
+            //sleep(1);
             break; // Exit the loop
         }
 
@@ -34,8 +38,17 @@ void shell() {
             printf("1. IO - Input/Output process\n");
             printf("2. help - Display available commands\n");
             printf("3. exit - Exit JayOS\n");
+            printf("4. SJF - Shortest Job First Scheduling Demo\n");
+            printf("5. FCFS - First Come First Serve Scheduling Demo\n");
         }
 
+        else if (strcmp(command, "SJF") == 0) {
+            SJFProcesses();
+        }
+
+        else if (strcmp(command, "FCFS") == 0) {
+            FCFSProcesses();
+        }
         else {
             printf("Command not found. Type 'help' to see available commands.\n");
         }

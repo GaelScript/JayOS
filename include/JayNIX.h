@@ -3,9 +3,9 @@
 
 #include "JSH.h"
 
-void JayNIX_Interface(){
+void JayNIX_Interface(int schedulerChoice){
     
-    shell();
+    shell(schedulerChoice);
 }
 
 
